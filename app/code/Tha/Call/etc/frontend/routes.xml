@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="standard">
+        <route frontName="more" id="moreid">
+            <module name="Tha_Call"/>
+        </route>
+
+        <!-- override route module: bằng cách này sẽ có thể thay thế 1 router controller mặc định bằng của mình. 
+                                    vd: customer/account/login bằng: more/dev/login. theo đó sẽ thay đổi cách xử lý.  
+        -->
+        <!-- <route id="customer"> là id của route trong module cần override
+           <module name="Tha_Call" before="Magento_Customer" /> tên của module cần overide và module override
+        </route> -->
+    </router>
+</config>

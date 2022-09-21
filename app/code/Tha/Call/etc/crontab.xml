@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+	<group id="default">
+		<job instance="Tha\Call\Cron\Test" method="execute" name="tha_call_cron">
+			<schedule>* * * * *</schedule>
+		</job>
+	</group>
+
+
+    <!-- group idlà tên nhóm cron của bạn. Bạn chỉ có thể chạy cron cho một nhóm tại một thời điểm.
+    job instance là một lớp được khởi tạo (classpath).
+    job methodlà phương thức job instanceđể gọi.
+    job name là ID duy nhất cho công việc cron này.
+    schedulelà lịch trình ở định dạng cron. Biểu đồ sau đây cho thấy nó bao gồm những gì:
+    * * * * * command to be executed
+    | | | | |
+    | | | | + Day of week (0 - 7) (Sunday=0 or 7)
+    | | | + Month (1 - 12)
+    | | + Day of month (1 - 31)
+    | +++++++++++++ Hour (0 - 23)
+    ++++++++++++++++ Minute (0 - 59)
+    </config> -->

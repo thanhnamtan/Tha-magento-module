@@ -1,0 +1,24 @@
+<div id="demo1" data-bind="scope:'demo11'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <script type="text/x-magento-init">
+    {
+        "#demo1": {
+            "Magento_Ui/js/core/app": {
+               "components": {
+                    "demo11": {
+                        "component": "demo1",
+                        "config": {
+                            "a": 123,
+                            "b": "kkkkkkk"
+                        }
+                    }
+                }
+            }
+        }
+    }
+    </script>
+</div>
+
+<div>
+    noi dung trong template
+</div>

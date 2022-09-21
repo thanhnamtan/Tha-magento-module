@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016-2017 JMango360. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Magento\Framework\View\Asset\Minification">
+        <plugin name="vendor_prevent_minification" type="Tha\Call\Plugin\View\MinificationPlugin" />
+    </type>
+
+    <type name="Magento\Framework\Console\CommandList">
+       <arguments>
+           <argument name="commands" xsi:type="array">
+               <item name="demo" xsi:type="object">Tha\Call\Console\Upversiondemo</item>
+               <item name="update" xsi:type="object">Tha\Call\Console\Upversionrun</item>
+<!--               <item name="jm360index" xsi:type="object">Tha\Call\Console\JmIndex</item>-->
+           </argument>
+
+            <!-- <argument name="commands" xsi:type="array"> -->
+               <!-- <item name="demo" xsi:type="object">Tha\Call\Console\Upversiondemo</item> -->
+               <!-- <item name="update_jm360_version" xsi:type="object">Tha\Call\Console\Upversionrun</item> -->
+            <!-- </argument> -->
+       </arguments>
+    </type>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="tha_call_post_listing_data_source" xsi:type="string">Tha\Call\Model\ResourceModel\Post\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="Tha\Call\Model\ResourceModel\Post\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">tha_tab_demo</argument>
+            <argument name="resourceModel" xsi:type="string">Tha\Call\Model\ResourceModel\Post</argument>
+        </arguments>
+    </virtualType>
+
+    <preference for="Tha\Call\Api\PostManagementInterface" type="Tha\Call\Model\PostManagement"/>
+    <!-- THA create log file  -->
+    <type name="Tha\Call\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+
+    <type name="Tha\Call\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">ThaLoggerName</argument>
+            <argument name="handlers"  xsi:type="array">
+                <item name="system" xsi:type="object">Tha\Call\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
+
+</config>

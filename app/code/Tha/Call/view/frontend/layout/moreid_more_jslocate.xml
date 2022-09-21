@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <referenceContainer name="main">
+        <block name="more_index_jslocate" template="Tha_Call::jslocate.phtml">
+            <block name="more_index_jslocate_chil" template="Tha_Call::jslocate.phtml"></block>
+        </block>
+        <block name="more_index_knockout" template="Tha_Call::knockout.phtml"></block>
+    </referenceContainer>
+</page>

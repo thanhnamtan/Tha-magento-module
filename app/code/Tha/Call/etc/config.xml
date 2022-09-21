@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <!-- <default>
+        <payment>
+            <simple>
+                <active>1</active>
+                <model>Tha\Call\Model\Payment\Simple</model>
+                <order_status>pending</order_status>
+                <title>Simple</title>
+                <allowspecific>0</allowspecific>
+                <group>Offline</group>
+            </simple>
+        </payment>
+    </default> -->
+
+    <default>
+        <carriers>
+            <simpleshipping>
+                <active>1</active>
+                <sallowspecific>0</sallowspecific>
+                <model>Tha\Call\Model\Carrier\Shipping</model>
+                <name>tha Sample Shipping Method</name>
+                <price>10.00</price>
+                <title>tha Sample Shipping Method</title>
+                <specificerrmsg>This shipping method is not available. To use this shipping method, please contact us.</specificerrmsg>
+                <handling_type>F</handling_type>
+            </simpleshipping>
+        </carriers>
+
+        <payment>
+            <custompayment>
+                <payment_action>authorize</payment_action> <!-- You can use another method -->
+                <model>Tha\Call\Model\PaymentMethod</model>
+                <active>1</active>
+                <title>tha Custom Payment</title>
+                <order_status>pending_payment</order_status><!-- set default order status-->
+            </custompayment>
+        </payment>
+
+    </default>
+
+</config>

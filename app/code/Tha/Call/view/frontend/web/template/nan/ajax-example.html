@@ -1,0 +1,11 @@
+<div class="parent-form">
+    <div class="form-items">
+        <input type="text" id="search-example" placeholder="Nhập từ khóa và nhấn Enter">
+        <input type="submit" id="submit-button" value="Tìm kiếm" data-bind="click: getKeyword">
+    </div>
+
+    <h3 style="color: rebeccapurple;">noi dung searched</h3>
+    <div class="customer-list" style="width: 20%;background: #eee;margin-top: 10px;" data-bind="foreach: searchdata">
+        <li data-bind="text: value"></li>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+<div id="custom-component" data-bind="scope:'customcomponent'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <script type="text/x-magento-init">
+        {
+            "#custom-component": {
+                "Magento_Ui/js/core/app": {
+                "components": {
+                        "customcomponent": {"component": "Tha_Call/js/custom-component"}
+                    }
+                }
+            }
+        }
+    </script>
+</div>
+
+<div data-mage-init='{"collapsible":{"openedState": "active", "saveState": true}}'>
+        <div data-role="title">
+            Title click
+        </div>
+        <div data-role="content">
+            Collapsible content tha nnan
+        </div>
+</div>
+
+<!-- <div data-mage-init='{"resizable": {"maxHeight": 200}}'>noi dung trong r</div> -->
+<div data-bind="tooltip: {
+        trigger: '[data-tooltip-trigger=trigger]',
+        action: 'click',
+        delay: 300,
+        track: true,
+        position: 'top'
+    }"> Tooltip data </div>
+
+<div data-tooltip-trigger="trigger" >tha trigger</div> 

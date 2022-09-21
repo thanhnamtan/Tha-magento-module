@@ -1,0 +1,43 @@
+<?php
+
+    /**
+     * @var \Tha\Trans\Block\Trans $block
+     */
+
+    $allows = $block->get_local_area();
+?>
+
+<style>
+    td, th {
+        border: 1px solid;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+</style>
+
+
+<div id="custom-component" data-bind="scope:'md-ko-example'">
+    <!-- ko template: getTemplate() -->
+    <!-- /ko -->
+</div>
+
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "md-ko-example": {
+                        "component": "Tha_Trans/js/Trans/Tablelist",
+                        "datas": <?=json_encode($this->trans_collection()->toArray()["items"]) ?>,
+                        "local_config": <?=json_encode($this->local_config())?>,
+                        "status": 567
+                    }
+                }
+            }
+        }
+    }
+</script>

@@ -1,0 +1,20 @@
+<?php
+/**
+ * @var \Tha\Devob\Block\DemoKnock $block
+ */
+echo(get_class($block));
+?>
+<div>
+    <p>noi dung demoknockout.phtml</p>  
+    <span style="color: red;">noi dung the span</span>
+    <div>222222222222</div>
+    <a href="">chuyen huong</a>
+</div>
+
+<?php
+    // $result = $block->get_object("Magento\Framework\Controller\ResultFactory");
+    $result = $this->get_object("\Magento\Framework\App\Response\Http");
+    if ($result) {
+        $block->redirect('/');
+    }
+?>

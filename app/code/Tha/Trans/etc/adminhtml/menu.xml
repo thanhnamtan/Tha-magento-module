@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Tha_Trans::trans" title="trans Menu" module="Tha_Trans" sortOrder="10" resource="Tha_Trans::transmenu"/>
+        <add id="Tha_Trans::index" title="tran index con" module="Tha_Trans" sortOrder="0" parent="Tha_Trans::trans"
+                action="adminftha/translate" resource="Tha_Trans::tran"/>
+    </menu>
+</config>

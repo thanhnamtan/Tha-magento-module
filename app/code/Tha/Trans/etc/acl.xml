@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+   <acl>
+     <resources>
+        <resource id="Magento_Backend::admin">
+           <resource id="Tha_Trans::menu" title="Custom trans lang" sortOrder="10" >
+              <resource id="Tha_Trans::create" title=" tha trans Create" sortOrder="50" />
+              <resource id="Tha_Trans::delete" title="tha trans Delete" sortOrder="100" />
+              <resource id="Tha_Trans::update" title="tha trans Update" sortOrder="120" />
+              <resource id="Tha_Trans::view" title="tha trans View" sortOrder="150" >
+                 <resource id="Tha_Trans::view_additional" title="tha View trans list" sortOrder="10" />
+              </resource>
+           </resource>
+        </resource>
+     </resources>
+   </acl>
+</config>

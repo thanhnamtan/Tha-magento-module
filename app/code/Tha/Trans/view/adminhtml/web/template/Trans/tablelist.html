@@ -1,0 +1,102 @@
+
+<div style="width: 55%; display: inline-block; vertical-align: top;">
+    <form action="" class="form" id="tha_trans_form" method="GET">
+        <div>
+            <span data-bind="text: message(), style: {color: message_type()}">234</span>
+        </div>
+        <fieldset class="fieldset info" style="border: 0;padding-left: 0px;">
+            <div class="field">
+                <div class="control">
+                    <p data-bind="i18n: 'local areas lang:'" style="margin-bottom: 2px"></p>
+                    <select id="local_area" name="local_area" style="width:-webkit-fill-available" required class="validate-select" size=local_config().length data-bind="
+                        optionsCaption: 'Please select a region, state or province.',
+                        options: local_config(),
+                        optionsText: 'label',
+                        optionsValue: 'value',
+                        value: local_area"
+                    >
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+
+        <div class="field">
+            <div class="field" style="display: inline-block; width: 45%;">
+                <p data-bind="i18n: 'default text:'" style="margin-bottom: 2px"></p>
+                <textarea type="text" name="be_trasn" id="be_trasn" rows="4" style="width:-webkit-fill-available" required data-bind="value: trans_key, valueUpdate: 'keyup'"></textarea>
+            </div>
+
+            <div class="field region required" style="width: 45%; float: right;">
+                <p data-bind="i18n: 'translate text:'" style="margin-bottom: 2px"></p>
+                <textarea type="text" name="af_trasn" id="af_trasn" rows="4" style="width:-webkit-fill-available" required data-bind="value: trans_value, valueUpdate: 'keyup'"></textarea>
+            </div>
+        </div>
+
+    </form>
+    <div>
+        <button class="primary" style="display: inline-block; margin-left: 40%;" id="tha_trans1" data-bind="i18n: 'Save translate for text', click: add, visible: !!!entity_id()"></button>
+        <button class="primary" style="display: inline-block; margin-left: 40%;" id="tha_trans2" data-bind="i18n: 'Update for text', click: updatePust, visible: entity_id()"></button>
+    </div>
+
+</div>
+
+
+<div id="custom-component" style="width: 43%; display: inline-block;">
+
+    <form style="margin-bottom: 10px;">
+        <p data-bind="text: 'count of all items = '+ items().length"></p>
+
+        <div style="display: inline-block; width: 45%">
+            <p data-bind="text: 'page active: ' + current_page()"></p>
+            <select size=items().length
+                data-bind="
+                    optionsCaption: 'Select page',
+                    options: all_inde,
+                    optionsText: $data,
+                    optionsValue: $data,
+                    value: current_page
+                ">
+        </select>
+        </div>
+
+        <div style="width: 45%; float: right; text-align:end">
+            <p data-bind="text: 'page numnber: '"></p>
+            <select size=page_size_arr().length
+                    data-bind="
+                        optionsCaption: 'Select page size',
+                        options: page_size_arr
+                        optionsText: $data,
+                        optionsValue: $data,
+                        value: page_size
+                        selectedOptions: setOptionDisable.bind($data)
+                    ">
+            </select>
+        </div>
+        <br />
+    </form>
+
+    <table style="border-collapse: collapse;">
+        <head>
+            <tr>
+                <th data-bind="i18n: 'area code'"></th>
+                <th data-bind="i18n: 'def val'"></th>
+                <th data-bind="i18n: 'trans val'"></th>
+                <th data-bind="i18n: 'action'"></th>
+            </tr>
+        </head>
+
+        <body>
+            <!-- ko foreach: current_item -->
+            <tr>
+                <td><span data-bind="text: $data.local_area"></span></td>
+                <td><span data-bind="text: $data.trans_key"></span></td>
+                <td><span data-bind="text: $data.trans_value"></span></td>
+                <td>
+                    <button class="primary" data-bind="i18n: 'delete', click: $parent.xoa.bind($parent, $data)"></button>
+                    <button class="action primary" data-bind="i18n: 'edit', click: $parent.update.bind($parent, $data)"></button>
+                </td>
+            </tr>
+            <!-- /ko -->
+        </body>
+    </table>
+</div>

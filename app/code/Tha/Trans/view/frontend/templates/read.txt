@@ -1,0 +1,57 @@
+<script>
+    require([
+        "jquery", "ko"
+    ], function($, ko) {
+        var button = $("#tha_trans");
+
+        button.click(function() {
+            if (be_trasn = $("#be_trasn").val() && $("#af_trasn").val() && $("#local_area").val()) {
+
+                // $.post( "http://magento241/thatran/index/transpost?isAjax=true", { be_trasn: $("#be_trasn").val(), af_trasn: $("#af_trasn").val(), local_arrea: $("#local_area").val() })
+                // .done(function( data ) {alert( "Data Loaded: " + 123 );});
+
+                $.ajax({
+                    url: "http://magento241.com/thatran/index/transpost?isAjax=true",
+                    data: {
+                        be_trasn: $("#be_trasn").val(),
+                        af_trasn: $("#af_trasn").val(),
+                        local_area: $("#local_area").val()
+                    },
+                    type: 'POST',
+                    dataType: 'json',
+                    beforeSend: function() {
+                        // show some loading icon
+                        console.log("begin send the data");
+                    },
+                    success: function(data, status, xhr) {
+                        // data contains your controller response'
+                        console.log(data);
+                        $("#be_trasn").val("");
+                        $("#af_trasn").val("");
+                    },
+                    error: function(xhr, status, errorThrown) {
+                        console.log('Error happens. Try again.');
+                        console.log(errorThrown);
+                    }
+                });
+            }
+        });
+    });
+</script>
+
+<?php
+/////////////////////
+    // <script type="text/x-magento-init">
+        // {
+        //     "#custom-component": {
+        //         "Tha_Trans/js/Trans/Tablelist": {"name": "tha nan", "address": "nam tan", "status": 1} 
+        //     }
+        // }
+    // </script>
+
+    // 1001  rm -rf pub/static/frontend
+    // 1002  rm -rf var
+    // 1003  php bin/magento setup:static-content:deploy -f
+//////////////////////
+?>
+
